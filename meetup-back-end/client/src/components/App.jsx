@@ -33,7 +33,10 @@ class App extends React.Component {
     axios.post('/attendees', attendee)
       .then(() => {
         this.getAttendees();
-      });
+      })
+      .then(() => {
+        this.componentDidMount();
+      })
   }
 
   render() {
