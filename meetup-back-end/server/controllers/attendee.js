@@ -41,7 +41,6 @@ exports.add = (req, res) => {
 
 exports.removeAttendee = (req, res) => {
   const info = req.body;
-  console.log(info);
 
   Attendee.deleteOne({ firstName: info.firstName }, (err, result) => {
     if (err) {
