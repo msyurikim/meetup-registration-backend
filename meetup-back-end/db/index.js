@@ -11,4 +11,18 @@ db
     console.log(err);
   });
 
+// const AttendeeSchema = new mongoose.Schema({
+//   id: Number,
+//   firstName: String,
+//   lastName: String,
+//   email: String,
+//   shirt: [String],
+//   skillLevel: [String]
+// });
+
+// const Attendee = mongoose.model('Attendee', AttendeeSchema);
+
+
+
+
 module.exports = db;
