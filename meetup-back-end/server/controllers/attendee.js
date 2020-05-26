@@ -13,7 +13,7 @@ exports.getAll = (req, res) => {
 
 exports.add = (req, res) => {
   // your code here
-  const newAttendee = new Attendee(req.query)
+  const newAttendee = new Attendee(req.body)
   newAttendee.save((err, data) => {
     if (err) {
       res.status(404).json(data)

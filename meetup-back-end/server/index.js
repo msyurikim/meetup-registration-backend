@@ -18,7 +18,8 @@ app.get('/attendees', (req, res) => {
 });
 
 app.post('/attendees', (req, res) => {
-  queries.add(req, res)
+  console.log(req.body)
+  queries.add(req.body, res)
 });
 
 const PORT = process.env.PORT || 3000;
