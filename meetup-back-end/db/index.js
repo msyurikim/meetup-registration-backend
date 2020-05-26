@@ -26,19 +26,11 @@ db.getAll = (query, cb) => {
 db.createOne = (query, cb) => {
   const {firstName, lastName, email, shirt, skillLevel} = query;
 
-  var newDoc = new Attendee({
-  firstName,
-  lastName,
-  email,
-  shirt,
-  skillLevel,
-  });
-
-  Attendee.create(newDoc, (err, results) => {
+  Attendee.create({firstName, lastName, email, shirt, skillLevel}, (err, data) => {
     if (err) {
       cb(err);
     } else {
-      cb(null, results);
+      cb(null, data);
     }
   })
 };
