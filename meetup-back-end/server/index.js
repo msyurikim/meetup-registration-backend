@@ -3,7 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
 const db = require('../db');
-const { add, getAll } = require('./controllers/Attendee.js')
+const { add, getAll, update, remove } = require('./controllers/Attendee.js')
 
 const app = express();
 app.use(morgan('dev'));
@@ -15,6 +15,8 @@ app.use(express.static(path.join(__dirname, '../client/public')));
 
 app.get('/attendees', getAll);
 app.post('/attendees', add);
+app.put('/attendees/:id', update);
+app.delete('/attendees/:id', remove);
 
 const PORT = process.env.PORT || 3000;
 
