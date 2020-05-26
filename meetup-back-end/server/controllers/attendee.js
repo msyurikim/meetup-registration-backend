@@ -14,4 +14,12 @@ exports.getAll = (req, res) => {
 
 exports.add = (req, res) => {
   // your code here
+  Attendee.save((err, attendee) => {
+    if (err) {
+      return res.status(400).send({
+        message: err,
+      });
+    }
+    return res.status(200);
+  })
 };
