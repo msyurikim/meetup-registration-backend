@@ -1,25 +1,26 @@
+const mongoose = require('mongoose');
 const Attendee = require('../../db/models/Attendee');
 
 
-exports.getAll = (req, res) => {
+exports.getAll = (req, callback) => {
   // your code here
   Attendee.find({}, (err, result) => {
     if (err) {
-      res.send(500);
+      callback(err);
     } else {
-      res.status(200).send(result);
+      callback(err, result);
     }
   })
 };
 
-exports.add = (req, res) => {
+exports.add = (req, callback) => {
   // your code here
   const newAttendee  = new Attendee(req.body);
-  newAttendee.save(req.body, (err, result) => {
+  newAttendee.save(req, (err, result) => {
     if (err) {
-      res.send(500);
+      callback(err);
     } else {
-      res.status(200).send(result);
+      callback(err, result);
     }
   })
 };

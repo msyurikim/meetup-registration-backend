@@ -2,7 +2,8 @@ const path = require('path');
 const express = require('express');
 const bodyParser = require('body-parser');
 const morgan = require('morgan');
-const db = require('../db/models/attendee');
+const db = require('../db/models/Attendee');
+const helper = require('./controllers/attendee');
 
 const app = express();
 app.use(morgan('dev'));
@@ -16,10 +17,23 @@ app.use(express.static(path.join(__dirname, '../client/public')));
 // app.post('/attendees', dontUseMe);
 
 app.get('/attendees', (req, res) => {
-
+  helper.getAll({}, (err, result) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(result);
+    }
+  })
 });
-app.post('/attendees', (req, res) => {
 
+app.post('/attendees', (req, res) => {
+  helper.add(req.body, (err, result) => {
+    if (err) {
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(result);
+    }
+  })
 });
 
 const PORT = process.env.PORT || 3000;
