@@ -33,6 +33,17 @@ app.post('/attendees', (req, res) => {
   })
 });
 
+app.delete('/attendees', (req, res) => {
+  const {email} = req.body;
+  db.deleteOne({email}, (err, results) => {
+    if (err) {
+      console.error('A database error occured');
+    } else {
+      res.send(results);
+    }
+  })
+});
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {

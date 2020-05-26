@@ -35,4 +35,15 @@ db.createOne = (query, cb) => {
   })
 };
 
+db.deleteOne = (query, cb) => {
+  const {email} = query;
+  Attendee.deleteOne({email}, (err, data) => {
+    if (err) {
+      cb(err);
+    } else {
+      cb(null, data);
+    }
+  })
+};
+
 module.exports = db;
