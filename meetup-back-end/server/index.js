@@ -10,11 +10,10 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/public')));
 
-
-// const dontUseMe = () => throw new Error('implement controllers');
-
 app.get('/attendees', attendee.getAll);
 app.post('/attendees', attendee.add);
+app.put('/attendees', attendee.update);
+app.delete('/attendees', attendee.delete);
 
 const PORT = process.env.PORT || 3000;
 
