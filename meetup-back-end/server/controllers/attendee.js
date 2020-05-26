@@ -2,24 +2,25 @@ const Attendee = require('../../db/models/Attendee');
 
 exports.getAll = (req, res) => {
   // your code here
-  Attendee.find({}).exec((err, data) => {
+  Attendee.find({}, (err, data) => {
     if (err) {
-      return res.status(400).send({
-        message: err,
-      });
+      res.status(400).send(err);
+    } else {
+      res.status(200).send(data);
     }
-    return res.status(200).send(data);
-  })
+  });
 };
 
 exports.add = (req, res) => {
-  // your code here
-  Attendee.save((err, attendee) => {
+  const { firstName, lastName, email, shirt, skillLevel } = req.body;
+
+  const newAttendee = new Attendee({ firstName, lastName, email, shirt, skillLevel });
+
+  newAttendee.save((err, attendee) => {
     if (err) {
-      return res.status(400).send({
-        message: err,
-      });
+      return err;
+    } else {
+      console.log('saved!');
     }
-    return res.status(200);
   })
 };
