@@ -4,7 +4,8 @@
   "description": "build the backend for a meetup organizer!",
   "main": "server/server.js",
   "scripts": {
-    "react:compile": "webpack -p"
+    "react:compile": "webpack -p",
+    "start": "node server"
   },
   "author": "Hack Reactor Curriculum Team",
   "license": "ISC",
