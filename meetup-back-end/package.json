@@ -4,7 +4,8 @@
   "description": "build the backend for a meetup organizer!",
   "main": "server/server.js",
   "scripts": {
-    "react:compile": "webpack -p"
+    "react:compile": "webpack -p",
+    "start": "nodemon server/index.js"
   },
   "author": "Hack Reactor Curriculum Team",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "express": "^4.16.3",
     "mongoose": "^5.2.1",
     "morgan": "^1.9.0",
+    "nodemon": "^2.0.4",
     "npm": "^6.1.0",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
