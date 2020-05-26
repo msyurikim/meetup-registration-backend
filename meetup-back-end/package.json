@@ -4,6 +4,7 @@
   "description": "build the backend for a meetup organizer!",
   "main": "server/server.js",
   "scripts": {
+    "start": "nodemon server/index.js",
     "react:compile": "webpack -p"
   },
   "author": "Hack Reactor Curriculum Team",
