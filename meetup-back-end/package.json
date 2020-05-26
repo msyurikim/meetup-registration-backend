@@ -5,7 +5,7 @@
   "main": "server/server.js",
   "scripts": {
     "react:compile": "webpack -p",
-    "start": "node server/index.js"
+    "start": "node server/index.js --watch"
   },
   "author": "Hack Reactor Curriculum Team",
   "license": "ISC",
