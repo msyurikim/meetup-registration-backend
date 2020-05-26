@@ -10,8 +10,7 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/public')));
 
-
-const dontUseMe = () => throw new Error('implement controllers');
+// const dontUseMe = () => throw new Error('implement controllers');
 
 app.get('/attendees', controllers.getAll);
 app.post('/attendees', controllers.add);
