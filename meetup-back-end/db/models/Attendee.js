@@ -2,17 +2,17 @@ const mongoose = require('mongoose');
 
 const attendeeSchema = new mongoose.Schema({
   // your code here
-  firstName: STRING,
-  lastName: STRING,
-  email: STRING,
+  firstName: String,
+  lastName: String,
+  email: String,
   shirt: {
-    type: STRING,
+    type: String,
     enum: [`XS`, `S`, `M`, `L`, `XL`, `XXL`]
   },
   skillLevel: {
-    type: STRING,
+    type: String,
     enum: [`beginner`, `intermediate`, `expert`]
-  },,
+  },
 });
 
 const Attendee = mongoose.model('Attendee', attendeeSchema);
