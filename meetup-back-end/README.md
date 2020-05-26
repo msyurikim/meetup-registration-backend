@@ -5,8 +5,8 @@ Build the back-end of a single page app that allows a meetup organizer to regist
 
 ## Setup
 
-- [ ] `npm install`
-- [ ] `npm run react:compile` to compile the client bundle
+- [X] `npm install`
+- [X] `npm run react:compile` to compile the client bundle
 
 ## Requirements
 
