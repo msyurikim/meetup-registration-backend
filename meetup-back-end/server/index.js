@@ -39,7 +39,6 @@ app.delete('/attendees', (req, res) => {
     if (err) {
       console.error('A database error occured');
     } else {
-      console.log('results of deleteing');
       res.send(results);
     }
   })
