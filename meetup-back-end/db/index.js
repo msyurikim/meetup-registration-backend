@@ -1,4 +1,5 @@
 const mongoose = require('mongoose');
+const Attendee = require('./models/Attendee');
 
 const mongoURI = 'mongodb://localhost:27017/jsmeetup';
 
@@ -11,4 +12,17 @@ db
     console.log(err);
   });
 
-module.exports = db;
+const getAll = (cb) => {
+  Attendee.find().exec((err, docs) => {
+    cb(err, docs);
+  });
+}
+
+const addOne = (data, cb) => {
+  let attendee = new Attendee(data);
+  attendee.save((err) => {
+    cb(err);
+  });
+}
+
+module.exports = { db, getAll, addOne };

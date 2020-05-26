@@ -10,7 +10,7 @@ Build the back-end of a single page app that allows a meetup organizer to regist
 
 ## Requirements
 
-- [ ] Complete the mongoose schema for an `Attendee`. The client already expects the following data shape:
+- [X] Complete the mongoose schema for an `Attendee`. The client already expects the following data shape:
 
 | Field          | Type            | Notes                                       |
 |----------------|-----------------|---------------------------------------------|

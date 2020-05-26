@@ -11,6 +11,7 @@ class App extends React.Component {
     super();
     this.state = {
       attendees: [],
+      error: '',
     };
     this.addAttendee = this.addAttendee.bind(this);
     this.getAttendees = this.getAttendees.bind(this);
@@ -31,16 +32,23 @@ class App extends React.Component {
 
   addAttendee(attendee) {
     axios.post('/attendees', attendee)
-      .then(() => {
-        this.getAttendees();
+      .then((err) => {
+        if (err) {
+          this.setState({
+            error: err,
+          })
+        }
+          this.getAttendees();
       });
   }
 
   render() {
+    let error = this.state.error.length > 0;
     return (
       <div className="main">
         <AttendeeForm addAttendee={this.addAttendee} />
         <AttendeeList attendees={this.state.attendees} />
+        {error ? <h4>{this.state.error}</h4> : null}
       </div>);
   }
 }
