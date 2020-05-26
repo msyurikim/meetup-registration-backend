@@ -5,6 +5,7 @@ const morgan = require('morgan');
 const db = require('../db');
 const addAttendee = require('./controllers/attendee.js').add;
 const getAllAttendees = require('./controllers/attendee.js').getAll;
+const deleteAttendee = require('./controllers/attendee.js').destroy;
 
 
 const app = express();
@@ -17,6 +18,7 @@ app.use(express.static(path.join(__dirname, '../client/public')));
 
 app.get('/attendees', getAllAttendees);
 app.post('/attendees', addAttendee);
+app.delete('/attendees/:id', deleteAttendee);
 
 const PORT = process.env.PORT || 3000;
 

@@ -14,6 +14,7 @@ class App extends React.Component {
     };
     this.addAttendee = this.addAttendee.bind(this);
     this.getAttendees = this.getAttendees.bind(this);
+    this.deleteAttendee = this.deleteAttendee.bind(this);
   }
 
   componentDidMount() {
@@ -36,11 +37,19 @@ class App extends React.Component {
       });
   }
 
+  deleteAttendee(id) {
+    console.log("Deleted", id)
+    axios.delete(`/attendees/${id}`)
+      .then(() => {
+        this.getAttendees();
+      });
+  }
+
   render() {
     return (
       <div className="main">
         <AttendeeForm addAttendee={this.addAttendee} />
-        <AttendeeList attendees={this.state.attendees} />
+        <AttendeeList attendees={this.state.attendees} deleteAttendee={this.deleteAttendee} />
       </div>);
   }
 }

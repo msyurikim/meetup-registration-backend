@@ -19,3 +19,10 @@ exports.add = (req, res) => {
     err ? res.status(500).send("Error saving to database.") : res.status(200).send(results);
   })
 };
+
+exports.destroy = (req, res) => {
+  console.log(req.params.id)
+  Attendee.deleteOne({_id: req.params.id }, (err, results)=>{
+    err ? res.status(500).send("Error deleting from database.") : res.status(200).send(results);
+  })
+}
