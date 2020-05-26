@@ -28,3 +28,27 @@ exports.add = (req, res) => {
     }
   });
 };
+
+// exports.changeInfo = (req, res) => {
+//   const info = req.body;
+
+//   Attendee.fineOneAndUpdate(info.email, {
+//     shirtSize: info.shirtSize,
+//     skillLevel: info.skillLevel,
+//     email: info.email,
+//   });
+// }
+
+exports.removeAttendee = (req, res) => {
+  const info = req.body;
+  console.log(info);
+
+  Attendee.deleteOne({ firstName: info.firstName }, (err, result) => {
+    if (err) {
+      res.sendStatus(500);
+      console.log(err);
+    } else {
+      res.send(result);
+    }
+  });
+};

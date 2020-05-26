@@ -17,6 +17,10 @@ app.get('/attendees', routes.getAll);
 
 app.post('/attendees', routes.add);
 
+// app.put('/attendees', routes.changeInfo);
+
+app.delete('/attendees', routes.removeAttendee);
+
 const PORT = process.env.PORT || 3000;
 
 app.listen(PORT, () => {
