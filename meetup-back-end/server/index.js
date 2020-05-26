@@ -9,11 +9,15 @@ app.use(morgan('dev'));
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, '../client/public')));
 
- 
-const dontUseMe = () => throw new Error('implement controllers');
 
-app.get('/attendees', dontUseMe);
-app.post('/attendees', dontUseMe);
+// const dontUseMe = () => throw new Error('implement controllers');
+
+app.get('/attendees', (req, res) => {
+  // do stuff
+});
+app.post('/attendees', (req, res) => {
+  // do stuff
+});
 
 const PORT = process.env.PORT || 3000;
 

@@ -5,5 +5,7 @@ exports.getAll = (req, res) => {
 };
 
 exports.add = (req, res) => {
-  // your code here
+  const { firstName, lastName, email, shirt, skillLevel } = req.body;
+  const attendee = new Attendee({ firstName, lastName, email, shirt, skillLevel });
+  attendee.save();
 };
